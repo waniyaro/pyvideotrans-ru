@@ -26,4 +26,4 @@ jobs:
         run: |
           python -m py_compile sp.py
           python videotrans/util/voice_toolkit.py --help
-          python -c "from videotrans.util.voice_toolkit import clean_text; assert clean_text('эээ ну привет') == 'Привет'"
+          python -c "from videotrans.util.voice_toolkit import clean_text; res = clean_text('эээ типа привет'); assert res == 'Привет'"
