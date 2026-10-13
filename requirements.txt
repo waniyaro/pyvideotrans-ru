@@ -1,0 +1,15 @@
+PySide6
+requests
+aiohttp
+httpx
+tenacity
+soundfile
+pydub
+psutil
+certifi
+urllib3
+torch
+torchaudio
+gigaam
+edge-tts
+faster-whisper
