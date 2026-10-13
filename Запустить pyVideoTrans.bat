@@ -15,6 +15,6 @@ if exist ".venv\Scripts\python.exe" (
 
 if %ERRORLEVEL% NEQ 0 (
     echo.
-    echo [Ошибка запуска] Если Python не установлен, установите Python 3.10 или скачайте готовую сборку pyVideoTrans.
+    echo [Ошибка запуска] Если программа не запустилась, проверьте .venv или запустите install.bat заново.
     pause
 )
