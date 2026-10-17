@@ -33,12 +33,12 @@ class Ui_MainWindow(object):
         self.splitter.setLineWidth(1)
         self.splitter.setOrientation(QtCore.Qt.Horizontal)
         self.splitter.setObjectName("splitter")
-        self.splitter.setSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
-
-        self.splitter.setMinimumWidth(600)
+        self.splitter.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        self.splitter.setChildrenCollapsible(False)
 
         self.layoutWidget = QtWidgets.QWidget(self.splitter)
         self.layoutWidget.setObjectName("layoutWidget")
+        self.layoutWidget.setMinimumWidth(720)
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.layoutWidget)
         self.verticalLayout_3.setContentsMargins(0, 0, 3, 0)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
@@ -235,6 +235,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.addWidget(self.scroll_area)
         self.verticalLayoutWidget = QtWidgets.QWidget(self.splitter)
         self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
+        self.verticalLayoutWidget.setMinimumWidth(220)
+        self.verticalLayoutWidget.setMaximumWidth(550)
 
         self.subtitle_layout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
         self.subtitle_layout.setContentsMargins(3, 0, 0, 0)
@@ -242,15 +244,14 @@ class Ui_MainWindow(object):
 
         self.subtitle_area = QPlainTextEdit()
         self.subtitle_area.setReadOnly(True)
-        self.subtitle_area.setSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+        self.subtitle_area.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
         self.subtitle_area.setObjectName("subtitle_area")
         self.subtitle_area.setPlaceholderText(
             f"\n{tr('subtitle_tips')}\n\n{tr('meitiaozimugeshi')}")
 
-        self.subtitle_layout.addWidget(self.subtitle_area,stretch=1)
+        self.subtitle_layout.addWidget(self.subtitle_area, stretch=1)
 
-
-        import_srt_layout=QtWidgets.QHBoxLayout()
+        import_srt_layout = QtWidgets.QHBoxLayout()
         self.import_subtitle = QtWidgets.QPushButton()
         self.import_subtitle.setText(tr('Import spoken SRT'))
         self.import_subtitle.setCursor(Qt.PointingHandCursor)
@@ -259,15 +260,19 @@ class Ui_MainWindow(object):
         self.import_subtitle_target.setCursor(Qt.PointingHandCursor)
         import_srt_layout.addWidget(self.import_subtitle)
         import_srt_layout.addWidget(self.import_subtitle_target)
-        
-        import_srt_tips=QtWidgets.QLabel(tr('This only works for translating a single video'))
+
+        import_srt_tips = QtWidgets.QLabel(tr('This only works for translating a single video'))
         import_srt_tips.setWordWrap(True)
         import_srt_tips.setStyleSheet("font-size:12px;color:#848f9c")
         import_srt_tips.setSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Maximum)
-        
-        self.subtitle_layout.addWidget(import_srt_tips,stretch=0)
+
+        self.subtitle_layout.addWidget(import_srt_tips, stretch=0)
         self.subtitle_layout.addLayout(import_srt_layout)
 
+        self.splitter.setCollapsible(0, False)
+        self.splitter.setCollapsible(1, False)
+        self.splitter.setStretchFactor(0, 4)
+        self.splitter.setStretchFactor(1, 1)
 
         self.horizontalLayout_7.addWidget(self.splitter)
         MainWindow.setCentralWidget(self.centralwidget)

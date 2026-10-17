@@ -28,6 +28,7 @@ class MainWindow(BindSignalsMixin, LifecycleMixin, QMainWindow, Ui_MainWindow):
         super().__init__(parent)
         self.callback=callback
         self.resize(width, height)
+        self.setMinimumSize(980, 600)
         self.screen_size=screen_size
         self.setupUi(self)
         self.callback("SetupUI end...")

@@ -7,7 +7,7 @@ class WinActionBaseModeMixin:
 
     def set_biaozhun(self):
         self.main.action_biaozhun.setChecked(True)
-        self.main.splitter.setSizes([self.main.width - 300, 300])
+        self.main.splitter.setSizes([max(720, self.main.width - 320), 320])
         self.main.app_mode = 'biaozhun'
         self.main.show_tips.setText(
             tr("Customize each configuration to batch video translation. When selecting a single video, you can pause to edit subtitles during processing."))
@@ -72,7 +72,7 @@ class WinActionBaseModeMixin:
 
     def set_tiquzimu(self):
         self.main.action_tiquzimu.setChecked(True)
-        self.main.splitter.setSizes([self.main.width - 300, 300])
+        self.main.splitter.setSizes([max(720, self.main.width - 320), 320])
         self.main.app_mode = 'tiqu'
         self.main.show_tips.setText(tr('tiquzimu'))
         self.main.startbtn.setText(tr('kaishitiquhefanyi'))

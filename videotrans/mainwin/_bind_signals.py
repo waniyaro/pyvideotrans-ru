@@ -46,6 +46,8 @@ class BindSignalsMixin:
 
 
         self.aisendsrt.toggled.connect(self.checkbox_state_changed)
+        if hasattr(self, 'clean_fillers'):
+            self.clean_fillers.toggled.connect(lambda checked: settings.__setitem__('clean_fillers', checked))
         self.rightbottom.clicked.connect(lambda : get_win('info'))
         self.statusLabel.clicked.connect(lambda: open_url('https://pyvideotrans.com'))
 

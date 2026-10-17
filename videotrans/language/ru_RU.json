@@ -1213,5 +1213,7 @@
   "Transcribe Russian Speech (Sber GigaAM)": "Распознать русскую речь (Sber GigaAM)",
   "Transcribing with Sber GigaAM...": "Выполняется распознавание через Sber GigaAM...",
   "Transcription completed!": "Распознавание успешно завершено!",
-  "Speech transcribed and saved to:": "Речь распознана и сохранена в субтитры:"
+  "Speech transcribed and saved to:": "Речь распознана и сохранена в субтитры:",
+  "Filter filler words": "Фильтрация слов-паразитов",
+  "Remove filler words (э-э, типа, ну, как бы) from recognized speech": "Удалять слова-паразиты (эээ, ну, типа, как бы) из распознанного текста"
 }

@@ -8,7 +8,7 @@ from PySide6.QtGui import QDesktopServices
 from PySide6.QtWidgets import QFileDialog
 
 from videotrans.configure import constants
-from videotrans.configure.config import tr, params, HOME_DIR
+from videotrans.configure.config import tr, params, HOME_DIR, settings
 from videotrans.util.help_misc import show_error, show_popup
 from videotrans.util.voice_toolkit import trim_media, enhance_voice, clean_text, clean_srt, transcribe_with_gigaam
 from videotrans.winform import get_cls
@@ -231,6 +231,7 @@ def openwin():
     winobj.transcribe_btn.clicked.connect(on_transcribe)
     winobj.clean_text_btn.clicked.connect(on_clean_text)
     winobj.clean_srt_btn.clicked.connect(on_clean_srt)
-    winobj.open_output_btn.clicked.connect(on_open_dir)
+    winobj.check_fillers.setChecked(settings.get('clean_fillers', False))
+    winobj.check_fillers.toggled.connect(lambda c: settings.__setitem__('clean_fillers', c))
 
     return winobj

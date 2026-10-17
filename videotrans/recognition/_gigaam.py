@@ -37,11 +37,18 @@ class GigaamRecogn(BaseRecogn):
         if not raws:
             return []
 
+        from videotrans.configure.config import settings
+        clean_enabled = settings.get('clean_fillers', False)
+        if clean_enabled:
+            from videotrans.util.voice_toolkit import clean_text
+
         for i, it in enumerate(raws):
             if self._exit():
                 return None
             try:
                 text = _GIGAAM_MODEL_INSTANCE.transcribe(it["filename"]).strip()
+                if clean_enabled and text:
+                    text = clean_text(text, language="ru", remove_fillers=True, remove_stutters=True, remove_hallucinations=True, fix_punctuation=True)
                 it["text"] = text
                 self.signal(text=f"{i+1}/{len(raws)}")
                 if text:

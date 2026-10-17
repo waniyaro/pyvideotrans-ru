@@ -100,11 +100,17 @@ def _create_asr_row(ui, parent):
     ui.recogn2pass.setToolTip(tr("Secondary speech recognition of dubbing files"))
     ui.recogn2pass.setText(tr("STT again"))
 
+    ui.clean_fillers = QtWidgets.QCheckBox(parent)
+    ui.clean_fillers.setText(tr("Filter filler words"))
+    ui.clean_fillers.setToolTip(tr("Remove filler words (э-э, типа, ну, как бы) from recognized speech"))
+    ui.clean_fillers.setChecked(settings.get('clean_fillers', False))
+
     layout.addWidget(ui.reglabel)
     layout.addWidget(ui.recogn_type)
     layout.addWidget(ui.model_name_help)
     layout.addWidget(ui.model_name)
     layout.addStretch()
+    layout.addWidget(ui.clean_fillers)
     layout.addWidget(ui.rephrase)
     layout.addWidget(ui.recogn2pass)
     return layout

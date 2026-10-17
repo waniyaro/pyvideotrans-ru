@@ -67,3 +67,5 @@ Thumbs.db
 # Whitelist installer batch scripts
 !Запустить pyVideoTrans.bat
 !install.bat
+!update.bat
+!Обновить pyVideoTrans.bat

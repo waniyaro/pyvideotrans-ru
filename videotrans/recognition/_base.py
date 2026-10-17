@@ -139,6 +139,22 @@ class BaseRecogn(BaseCon):
                 srt_list[i - 1]['time'] = f"{srt_list[i - 1]['startraw']} --> {srt_list[i - 1]['endraw']}"
 
 
+        if settings.get('clean_fillers'):
+            try:
+                from videotrans.util.voice_toolkit import clean_text
+                for it in srt_list:
+                    if it.get('text'):
+                        it['text'] = clean_text(
+                            it['text'],
+                            language="ru",
+                            remove_fillers=True,
+                            remove_stutters=True,
+                            remove_hallucinations=True,
+                            fix_punctuation=True
+                        )
+            except Exception as e:
+                logger.warning(f"Error cleaning filler words: {e}")
+
         _post_fix_srt=[]
         for it in srt_list:
             # 移除末尾标点
