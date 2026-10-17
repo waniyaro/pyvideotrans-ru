@@ -13,3 +13,5 @@ torchaudio
 gigaam
 edge-tts
 faster-whisper
+sounddevice
+huggingface_hub
